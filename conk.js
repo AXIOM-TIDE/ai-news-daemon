@@ -19,7 +19,7 @@ import { SuiClient }      from '@mysten/sui/client';
 
 // ─── Contract constants (v9, live) ────────────────────────────────────────────
 
-const CONK_PACKAGE  = '0x7bc8f81b03cede714045a9f24e5f776fc449000c9414e33908ebe177d3b5ac2b';
+const CONK_PACKAGE  = '0x50515260e8f766ad01461f78065b18510fef6879c3a8a776edc7da76a1db62a8';
 const ABYSS_OBJ     = '0x392d5f46b5f02fb34cc0cb06c27e89b6e4dacc4cafd41e3b9ac1bc9f02dd1598';
 const CLOCK_OBJ     = '0x0000000000000000000000000000000000000000000000000000000000000006';
 const USDC_TYPE     = '0xdba34672e30cb065b1f93e3ab55318768fd6fef66c15942c9f7cb846e2f900e7::usdc::USDC';

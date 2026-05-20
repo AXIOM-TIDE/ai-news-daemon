@@ -101,8 +101,9 @@ if (res1.effects?.status?.status !== 'success') {
   process.exit(1);
 }
 
-const harborObj    = res1.objectChanges?.find(c => c.type === 'created' && c.objectType?.includes('::harbor::Harbor'));
-const harborCapObj = res1.objectChanges?.find(c => c.type === 'created' && c.objectType?.includes('::harbor::HarborCap'));
+// Same trap on Harbor/HarborCap.
+const harborObj    = res1.objectChanges?.find(c => c.type === 'created' && /::harbor::Harbor($|<)/.test(c.objectType || ''));
+const harborCapObj = res1.objectChanges?.find(c => c.type === 'created' && /::harbor::HarborCap($|<)/.test(c.objectType || ''));
 if (!harborObj || !harborCapObj) {
   console.error('❌ Harbor objects not in tx output. Changes:', JSON.stringify(res1.objectChanges, null, 2));
   process.exit(1);
@@ -143,8 +144,9 @@ if (res2.effects?.status?.status !== 'success') {
   process.exit(1);
 }
 
-const vesselObj    = res2.objectChanges?.find(c => c.type === 'created' && c.objectType?.includes('::vessel::Vessel'));
-const vesselCapObj = res2.objectChanges?.find(c => c.type === 'created' && c.objectType?.includes('::vessel::VesselCap'));
+// Tight match: VesselCap also matches '::vessel::Vessel' substring, so use exact type endings.
+const vesselObj    = res2.objectChanges?.find(c => c.type === 'created' && /::vessel::Vessel($|<)/.test(c.objectType || ''));
+const vesselCapObj = res2.objectChanges?.find(c => c.type === 'created' && /::vessel::VesselCap($|<)/.test(c.objectType || ''));
 if (!vesselObj || !vesselCapObj) {
   console.error('❌ Vessel objects not in tx output. Changes:', JSON.stringify(res2.objectChanges, null, 2));
   process.exit(1);

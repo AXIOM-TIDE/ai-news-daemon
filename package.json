@@ -1,7 +1,7 @@
 {
   "name": "ai-news-daemon",
   "version": "1.0.0",
-  "description": "CONK intelligence daemon — daily AI agent news digest as a Cast",
+  "description": "CONK daemon — publishes daily Sui ecosystem intelligence as Casts",
   "type": "module",
   "main": "index.js",
   "scripts": {

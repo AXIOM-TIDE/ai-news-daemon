@@ -57,7 +57,7 @@ async function publish() {
   let stats;
   try {
     stats = await fetchSuiStats();
-    log(`Data fetched. Txs: ${stats.network.totalTransactions?.toLocaleString()}, TVL: ${stats.defi.tvlUsd}`);
+    log(`Data fetched. payload_keys=[${Object.keys(stats || {}).join(', ')}]`);
   } catch (e) {
     err(`Fetch failed: ${e.message}`);
     return;

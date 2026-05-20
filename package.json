@@ -1,0 +1,17 @@
+{
+  "name": "ai-news-daemon",
+  "version": "1.0.0",
+  "description": "CONK intelligence daemon — daily AI agent news digest as a Cast",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "provision": "node provision.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@mysten/sui": "^1.0.0"
+  }
+}
